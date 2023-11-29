@@ -1,15 +1,25 @@
 {
-  "name": "Instagram-demo-project",
+  "name": "instagram-demo-project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "wasla",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
-  }
+    "express": "^4.18.2",
+    "mysql2": "^3.6.5",
+    "sequelize": "^6.35.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wasla-Shafique/instagram-demo-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Wasla-Shafique/instagram-demo-project/issues"
+  },
+  "homepage": "https://github.com/Wasla-Shafique/instagram-demo-project#readme",
+  "description": ""
 }
