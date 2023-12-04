@@ -1,13 +1,19 @@
 // user.model.js
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../sequel-config');
+const Follower = require('./Follower')
+
 
 const User = sequelize.define('User', {
+  userId:{
+    type : DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+
+  },
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    primaryKey: true,
-
   },
   full_name: {
     type: DataTypes.STRING,
@@ -31,4 +37,17 @@ const User = sequelize.define('User', {
   },
 });
 
+User.belongsToMany(User, {
+  as: 'followers',
+  through: Follower,
+  foreignKey: 'userId',
+  otherKey: 'followerId',
+});
+
+User.belongsToMany(User, {
+  as: 'following',
+  through: Follower,
+  foreignKey: 'followerId',
+  otherKey: 'userId',
+});
 module.exports = User;
