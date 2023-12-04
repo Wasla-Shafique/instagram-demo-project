@@ -9,12 +9,14 @@ const PORT = process.env.PORT || 3000;
 // Routes 
 const userRoutes = require('./routes/User');
 const followRoutes = require('./routes/Follower');
+const postRoutes = require('./routes/Post')
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
 app.use(userRoutes);
 app.use(followRoutes);
+app.use(postRoutes);
 
 
 // Sync models with the database
