@@ -1,8 +1,8 @@
 // user.model.js
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../sequel-config');
-const Follower = require('./Follower')
-
+const Follower = require('./Follower');
+const Post = require('./Post');
 
 const User = sequelize.define('User', {
   userId:{
@@ -50,4 +50,11 @@ User.belongsToMany(User, {
   foreignKey: 'followerId',
   otherKey: 'userId',
 });
+
+User.associate = (models)=>{
+  User.hasMany(models.Post, { foreignKey: 'userId' });
+};
+
+
+
 module.exports = User;
