@@ -18,6 +18,5 @@ router.put('/api/user/:userId', userController.editUser);
 
 router.delete('/api/user/:userId', userController.deleteUser);
 
-router.post('/api/follow/:userId',followController.followUser);
 
 module.exports = router
