@@ -10,7 +10,7 @@ const router = express.Router();
 console.log("get request in router")
 
 
-router.get('/api/user', userController.getUsers);
+router.get('/api/users', userController.getUsers);
 
 router.post('/api/user', userController.createUser);
 

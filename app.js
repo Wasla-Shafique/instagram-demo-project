@@ -11,6 +11,7 @@ const userRoutes = require('./routes/User');
 const followRoutes = require('./routes/Follower');
 const postRoutes = require('./routes/Post');
 const likeRoutes = require('./routes/Reaction');
+const commentRoutes = require('./routes/Comments');
 
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ app.use(userRoutes);
 app.use(followRoutes);
 app.use(postRoutes);
 app.use(likeRoutes);
+app.use(commentRoutes);
 
 
 // Sync models with the database

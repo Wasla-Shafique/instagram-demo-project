@@ -7,7 +7,7 @@ console.log("inside post route");
 
 router.post('/api/post/:userId',postController.createPost);
 
-router.get('/api/post/:userId', postController.getPosts);
+router.get('/api/posts/:userId', postController.getPosts);
 
 router.delete('/api/post/:postId', postController.deletePost);
 

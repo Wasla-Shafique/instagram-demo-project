@@ -1,6 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../sequel-config');
 const User = require('../models/User');
+const Comment = require('../models/Comment');
+
 
 const Post = sequelize.define('Post', {
   id: {
@@ -30,7 +32,10 @@ Post.belongsTo(User, {
   onDelete: 'CASCADE',
 });
 
-
+Post.hasMany(Comment, {
+  foreignKey: 'postId',
+  onDelete: 'CASCADE',
+});
 
 
 

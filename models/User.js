@@ -3,10 +3,11 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../sequel-config');
 const Follower = require('./Follower');
 const Post = require('./Post');
+const Comment = require('../models/Comment');
 
 const User = sequelize.define('User', {
-  userId:{
-    type : DataTypes.INTEGER,
+  userId: {
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
 
@@ -51,10 +52,13 @@ User.belongsToMany(User, {
   otherKey: 'userId',
 });
 
-User.associate = (models)=>{
+User.associate = (models) => {
   User.hasMany(models.Post, { foreignKey: 'userId' });
+  User.hasMany(models.Comment, {
+    foreignKey: 'userId',
+    onDelete: 'CASCADE',
+  });
 };
-
 
 
 module.exports = User;
